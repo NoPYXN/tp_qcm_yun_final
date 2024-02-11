@@ -16,13 +16,15 @@ class QcmScreenTest {
     val composeTestRule = createComposeRule()
 
     @Test
-    fun testButtonClicked1Succes() {
+    fun test_qcm_bodybuilding_succes() {
         val context = ApplicationProvider.getApplicationContext<Context>()
         val navController = NavController(context)
 
         composeTestRule.setContent {
             QcmScreenContent(numero = 1, navController = navController)
         }
+
+        composeTestRule.onNodeWithText("Qui est actuellement le vainqueur de Mister Olympia (catégorie Classique Physique) depuis 4 ans d'affilée ?").assertExists()
 
         composeTestRule.onNodeWithText("Chris Bumstead").assertExists()
         composeTestRule.onNodeWithText("Ramon Rocha Queiroz").assertExists()
@@ -35,13 +37,14 @@ class QcmScreenTest {
     }
 
     @Test
-    fun testButtonClicked1Fail() {
+    fun test_qcm_bodybuilding_fail() {
         val context = ApplicationProvider.getApplicationContext<Context>()
         val navController = NavController(context)
 
         composeTestRule.setContent {
             QcmScreenContent(numero = 1, navController = navController)
         }
+        composeTestRule.onNodeWithText("Qui est actuellement le vainqueur de Mister Olympia (catégorie Classique Physique) depuis 4 ans d'affilée ?").assertExists()
 
         composeTestRule.onNodeWithText("Chris Bumstead").assertExists()
         composeTestRule.onNodeWithText("Ramon Rocha Queiroz").assertExists()
@@ -60,13 +63,15 @@ class QcmScreenTest {
     }
 
     @Test
-    fun testButtonClicked2Succes() {
+    fun test_qcm_musique_succes() {
         val context = ApplicationProvider.getApplicationContext<Context>()
         val navController = NavController(context)
 
         composeTestRule.setContent {
             QcmScreenContent(numero = 2, navController = navController)
         }
+
+        composeTestRule.onNodeWithText("Parmi ces artistes, qui a la musique la plus écoutée ?").assertExists()
 
         composeTestRule.onNodeWithText("XXX Tentacion").assertExists()
         composeTestRule.onNodeWithText("Scarlxrd").assertExists()
@@ -76,17 +81,18 @@ class QcmScreenTest {
         composeTestRule.onNodeWithText("XXX Tentacion").performClick()
 
         composeTestRule.onNodeWithText("Bonne Réponse").assertExists()
-
     }
 
     @Test
-    fun testButtonClicked2Fail() {
+    fun test_qcm_musique_fail() {
         val context = ApplicationProvider.getApplicationContext<Context>()
         val navController = NavController(context)
 
         composeTestRule.setContent {
             QcmScreenContent(numero = 2, navController = navController)
         }
+
+        composeTestRule.onNodeWithText("Parmi ces artistes, qui a la musique la plus écoutée ?").assertExists()
 
         composeTestRule.onNodeWithText("XXX Tentacion").assertExists()
         composeTestRule.onNodeWithText("Scarlxrd").assertExists()
@@ -105,13 +111,15 @@ class QcmScreenTest {
     }
 
     @Test
-    fun testButtonClicked3Succes() {
+    fun test_qcm_chaussures_succes() {
         val context = ApplicationProvider.getApplicationContext<Context>()
         val navController = NavController(context)
 
         composeTestRule.setContent {
             QcmScreenContent(numero = 3, navController = navController)
         }
+
+        composeTestRule.onNodeWithText("Quelle est la paire de chaussures la plus chère parmi les quatre ?").assertExists()
 
         composeTestRule.onNodeWithText("Air Jordan 1 Retro High Off-White Chicago").assertExists()
         composeTestRule.onNodeWithText("Baskets en cuir rhyton Gucci").assertExists()
@@ -124,13 +132,15 @@ class QcmScreenTest {
     }
 
     @Test
-    fun testButtonClicked3Fail() {
+    fun test_qcm_chaussures_fail() {
         val context = ApplicationProvider.getApplicationContext<Context>()
         val navController = NavController(context)
 
         composeTestRule.setContent {
             QcmScreenContent(numero = 3, navController = navController)
         }
+
+        composeTestRule.onNodeWithText("Quelle est la paire de chaussures la plus chère parmi les quatre ?").assertExists()
 
         composeTestRule.onNodeWithText("Air Jordan 1 Retro High Off-White Chicago").assertExists()
         composeTestRule.onNodeWithText("Baskets en cuir rhyton Gucci").assertExists()
@@ -145,5 +155,6 @@ class QcmScreenTest {
         composeTestRule.onNodeWithText("Retour").performClick()
         composeTestRule.onNodeWithText("Nike SB Dunk Low Travis Scott").performClick()
         composeTestRule.onNodeWithText("Mauvaise Réponse").assertExists()
+        composeTestRule.onNodeWithText("Retour").performClick()
     }
 }

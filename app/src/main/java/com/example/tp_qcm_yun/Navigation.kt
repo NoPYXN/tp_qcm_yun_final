@@ -24,8 +24,6 @@ fun Navigation(){
             )
         ){
             QcmScreenContent(numero = it.arguments?.getInt("numero") ?: 1, navController = navController)
-
-            //,navController = navController
         }
     }
 }

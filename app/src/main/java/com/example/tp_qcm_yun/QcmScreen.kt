@@ -3,7 +3,6 @@ package com.example.tp_qcm_yun
 import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
@@ -125,6 +124,7 @@ fun QcmScreenContent(numero: Int? = 1, navController: NavController) {
         valReponseDescription4 = "Les Dunk Low de Travis sont au prix de 2 100 euros et sont les deuxièmes plus chères de cette liste."
     }
 
+    //Définition de mes réponses et de leurs labels avec un .shuffled pour qu'elles changent de place.
     val reponses = listOf(
         Response(valReponse1, valimage1, valHauteurImage, valLargeurImage,1),
         Response(valReponse2, valimage2, valHauteurImage, valLargeurImage,2),
@@ -150,7 +150,7 @@ fun QcmScreenContent(numero: Int? = 1, navController: NavController) {
                     .fillMaxWidth(),
                 horizontalArrangement = Arrangement.Center
             ) {
-                Response_Button(
+                Reponse_Bouton(
                     reponses[0],
                     reponses[0].image,
                     reponses[0].hauteur,
@@ -161,7 +161,7 @@ fun QcmScreenContent(numero: Int? = 1, navController: NavController) {
                     boutonsVisibles = false
                 }
                 Spacer(modifier = Modifier.width(16.dp))
-                Response_Button(
+                Reponse_Bouton(
                     reponses[1],
                     reponses[1].image,
                     reponses[1].hauteur,
@@ -180,7 +180,7 @@ fun QcmScreenContent(numero: Int? = 1, navController: NavController) {
                     .fillMaxWidth(),
                 horizontalArrangement = Arrangement.Center
             ) {
-                Response_Button(
+                Reponse_Bouton(
                     reponses[2],
                     reponses[2].image,
                     reponses[2].hauteur,
@@ -191,7 +191,7 @@ fun QcmScreenContent(numero: Int? = 1, navController: NavController) {
                     boutonsVisibles = false
                 }
                 Spacer(modifier = Modifier.width(16.dp))
-                Response_Button(
+                Reponse_Bouton(
                     reponses[3],
                     reponses[3].image,
                     reponses[3].hauteur,
@@ -204,6 +204,7 @@ fun QcmScreenContent(numero: Int? = 1, navController: NavController) {
             }
         }
     } else {
+        //Verification si mon bouton 1 est choisie
         if (reponseChoisie == 1) {
             Box(
                 modifier = Modifier
@@ -221,6 +222,7 @@ fun QcmScreenContent(numero: Int? = 1, navController: NavController) {
             }
 
         }
+        //Verification si mon bouton 2 est choisie
         else if (reponseChoisie == 2) {
             Question_Affichage(valQuestion)
 
@@ -230,6 +232,7 @@ fun QcmScreenContent(numero: Int? = 1, navController: NavController) {
                 boutonsVisibles = true
             }
         }
+        //Verification si mon bouton 3 est choisie
         else if (reponseChoisie == 3) {
             Question_Affichage(valQuestion)
 
@@ -239,6 +242,7 @@ fun QcmScreenContent(numero: Int? = 1, navController: NavController) {
                 boutonsVisibles = true
             }
         }
+        //Verification si mon bouton 4 est choisie
         else if (reponseChoisie == 4) {
             Question_Affichage(valQuestion)
 
@@ -251,10 +255,12 @@ fun QcmScreenContent(numero: Int? = 1, navController: NavController) {
     }
 }
 
+//Définition de mes fonctions
 data class Response(val text: String, val image : String, val hauteur : Int, val largeur : Int, val id: Int)
 
+//Bouton de réponse
 @Composable
-fun Response_Button(response: Response, image: String, hauteur : Int, largeur : Int, onClick: () -> Unit) {
+fun Reponse_Bouton(response: Response, image: String, hauteur : Int, largeur : Int, onClick: () -> Unit) {
     Button(
         onClick = onClick,
         modifier = Modifier
@@ -286,6 +292,7 @@ fun Response_Button(response: Response, image: String, hauteur : Int, largeur : 
     }
 }
 
+//Affichage de ma flèche pour retourner à l'accueil
 @Composable
 fun Bouton_Retour_Accueil_Icon_Fleche(numero : String, onElementClick : (String)->Unit) {
     IconButton(
@@ -296,6 +303,8 @@ fun Bouton_Retour_Accueil_Icon_Fleche(numero : String, onElementClick : (String)
         Icon(imageVector = Icons.Default.ArrowBack, contentDescription = "Retour à l'accueil")
     }
 }
+
+//Affichage de mon bouton pour retourner à l'accueil lors d'une bonne réponse
 @Composable
 fun Bouton_Retour_Accueil_Bonne_Reponse(numero : String, onElementClick : (String)->Unit) {
     Column(
@@ -318,6 +327,7 @@ fun Bouton_Retour_Accueil_Bonne_Reponse(numero : String, onElementClick : (Strin
     }
 }
 
+//Affichage de mon bouton pour retourner à la question lors d'une mauvaise réponse
 @Composable
 fun Bouton_Retour(onClick: () -> Unit) {
     Column(
@@ -339,6 +349,7 @@ fun Bouton_Retour(onClick: () -> Unit) {
     }
 }
 
+//Affichage de ma question
 @Composable
 fun Question_Affichage(question : String){
     Column(
@@ -357,6 +368,7 @@ fun Question_Affichage(question : String){
     }
 }
 
+//Affichage du texte "Bonne Réponse" et appel de ma fonction image, ainsi que des explications de la réponse
 @Composable
 fun Bonne_Reponse_Affichage(reponseDescription : String, image: String?, hauteur : Int, largeur : Int){
     Column(
@@ -381,6 +393,8 @@ fun Bonne_Reponse_Affichage(reponseDescription : String, image: String?, hauteur
         Explication_Resultat_Affichage(reponseDescription)
     }
 }
+
+//Affichage du texte "Mauvaise Réponse" et appel de ma fonction image, ainsi que des explications de la réponse
 @Composable
 fun Mauvaise_Reponse_Affichage(ReponseDescription : String, image: String?, hauteur : Int, largeur : Int){
     Column(
@@ -406,6 +420,7 @@ fun Mauvaise_Reponse_Affichage(ReponseDescription : String, image: String?, haut
     }
 }
 
+//Affichage de l'explication de la réponse
 @Composable
 fun Explication_Resultat_Affichage(ReponseDescription : String) {
 
@@ -416,6 +431,7 @@ fun Explication_Resultat_Affichage(ReponseDescription : String) {
 
 }
 
+//Affichage de mon image
 @Composable
 fun Affichage_Image(image: String, hauteur : Int, largeur : Int){
     Image(
@@ -429,6 +445,7 @@ fun Affichage_Image(image: String, hauteur : Int, largeur : Int){
     )
 }
 
+//lien pour aller chercher mes images
 @Composable
 fun lien_Image(imageName: String): Int {
     return LocalContext.current.resources.getIdentifier(

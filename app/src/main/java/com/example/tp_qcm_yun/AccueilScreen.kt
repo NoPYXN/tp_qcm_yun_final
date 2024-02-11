@@ -58,6 +58,8 @@ fun Accueil_Screen(
     }
 }
 
+
+//Ensemble de boutons qui affiche le bouton vers le QCM et la poubelle
 @Composable
 fun Ensemble_BoutonAccueil(
     numero: String,
@@ -91,11 +93,12 @@ fun Ensemble_BoutonAccueil(
                 },
                 modifier = Modifier.size(48.dp)
             ) {
-                Icon(imageVector = Icons.Default.Delete, contentDescription = null)
+                Icon(imageVector = Icons.Default.Delete, contentDescription = "supprimer le qcm $numero")
             }
         }
     }
 
+    //Boîte de dialogue pour confirmer la suppression
     if (showDialog) {
         AlertDialog(
             onDismissRequest = { showDialog = false },

@@ -8,6 +8,9 @@
       <entry key="QcmScreenTest">
         <State />
       </entry>
+      <entry key="Tests in 'com.example.tp_qcm_yun'">
+        <State />
+      </entry>
       <entry key="app">
         <State>
           <targetSelectedWithDropDown>
@@ -24,11 +27,24 @@
           <timeTargetWasSelectedWithDropDown value="2024-02-10T23:16:39.193717200Z" />
         </State>
       </entry>
-      <entry key="testButtonClicked1()">
+      <entry key="test_element()">
         <State />
       </entry>
-      <entry key="testButtonClicked1Fail()">
-        <State />
+      <entry key="test_supression_element()">
+        <State>
+          <targetSelectedWithDropDown>
+            <Target>
+              <type value="QUICK_BOOT_TARGET" />
+              <deviceKey>
+                <Key>
+                  <type value="VIRTUAL_DEVICE_PATH" />
+                  <value value="C:\Users\YunKenan\.android\avd\Pixel_7_Pro_API_34.avd" />
+                </Key>
+              </deviceKey>
+            </Target>
+          </targetSelectedWithDropDown>
+          <timeTargetWasSelectedWithDropDown value="2024-02-11T14:20:36.428203800Z" />
+        </State>
       </entry>
     </value>
   </component>
