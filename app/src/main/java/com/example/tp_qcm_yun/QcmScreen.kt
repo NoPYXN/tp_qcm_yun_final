@@ -212,7 +212,7 @@ fun QcmScreenContent(numero: Int? = 1, navController: NavController) {
             ) {
                 Question_Affichage(valQuestion)
 
-                Bonne_Reponse_Affichage(valReponseDescription1, reponseSelectionnee, reponses[2].hauteur, reponses[2].largeur)
+                Bonne_Reponse_Affichage(valReponseDescription1, reponseSelectionnee, reponses[0].hauteur, reponses[0].largeur)
 
                 Bouton_Retour_Accueil_Bonne_Reponse(
                     "1",
@@ -224,7 +224,7 @@ fun QcmScreenContent(numero: Int? = 1, navController: NavController) {
         else if (reponseChoisie == 2) {
             Question_Affichage(valQuestion)
 
-            Mauvaise_Reponse_Affichage(valReponseDescription2, reponseSelectionnee, reponses[2].hauteur, reponses[2].largeur)
+            Mauvaise_Reponse_Affichage(valReponseDescription2, reponseSelectionnee, reponses[1].hauteur, reponses[1].largeur)
 
             Bouton_Retour() {
                 boutonsVisibles = true
@@ -233,7 +233,7 @@ fun QcmScreenContent(numero: Int? = 1, navController: NavController) {
         else if (reponseChoisie == 3) {
             Question_Affichage(valQuestion)
 
-            Mauvaise_Reponse_Affichage(valReponseDescription3, reponseSelectionnee, reponses[3].hauteur, reponses[3].largeur)
+            Mauvaise_Reponse_Affichage(valReponseDescription3, reponseSelectionnee, reponses[2].hauteur, reponses[2].largeur)
 
             Bouton_Retour() {
                 boutonsVisibles = true
@@ -242,7 +242,7 @@ fun QcmScreenContent(numero: Int? = 1, navController: NavController) {
         else if (reponseChoisie == 4) {
             Question_Affichage(valQuestion)
 
-            Mauvaise_Reponse_Affichage(valReponseDescription4, reponseSelectionnee, reponses[4].hauteur, reponses[4].largeur)
+            Mauvaise_Reponse_Affichage(valReponseDescription4, reponseSelectionnee, reponses[3].hauteur, reponses[3].largeur)
 
             Bouton_Retour() {
                 boutonsVisibles = true
