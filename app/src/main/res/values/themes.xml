@@ -1,0 +1,6 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Base.Theme.Tp_qcm_yun" parent="android:Theme.Material.Light.NoActionBar">
+    </style>
+
+    <style name="Theme.Tp_qcm_yun" parent="Base.Theme.Tp_qcm_yun" />
+</resources>
